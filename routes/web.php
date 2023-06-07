@@ -36,6 +36,7 @@ Route::get('/', function () {
 
 Route::get('my-notification/{type}', [DashboardController::class,'myNotification']);
 
+//Verify Email
 Auth::routes(['verify' => true]);
 
 //DATATABLE
