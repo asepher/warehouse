@@ -306,13 +306,26 @@ class Helper {
 //FORMAT INVOICE WH
 public static function FormatInvWh($inv)
     {
-        // SLLI 2021 0324 01
-        $dept   = substr($inv,0,4);  
-        $tahun  = substr($inv,4,4);
-        $bln    = substr($inv,8,4);
-        $urut   = substr($inv,-2);
+        // SLLI2021032401 = 14
+        // SSLI20230410021 = 15
 
-        return $dept.'/'.$tahun.'/'.$bln.'/'.$urut;
+        if ( strlen($inv) == 14 ) {
+
+            $dept   = substr($inv,0,4);  
+            $tahun  = substr($inv,4,4);
+            $bln    = substr($inv,8,4);          
+            $urut   = substr($inv,-2);
+            return $dept.'/'.$tahun.'/'.$bln.'/' .$urut;
+        } else {
+            $dept   = substr($inv,0,4);  
+            $tahun  = substr($inv,4,4);
+            $bln    = substr($inv,8,2);
+            $noves  = substr($inv,10,3);
+            $urut   = substr($inv,-2);
+            return $dept.'/'.$tahun.'/'.$bln.'/'. $noves .'/'.$urut;
+
+        }
+
 
     }
 

@@ -7,7 +7,7 @@
 @section('breadcrumb')
    <a href="">Vessel</a>
 @endsection
-
+ 
 @section('content')
 
  <!-- /.page-header -->
@@ -184,26 +184,44 @@
                                     $jumppn       = $jumppn + $dtl->ppn;
                                     $grandtot     = $jumppn + $subtotal;
                                   @endphp
+                                  
                                 @endforeach
                                 <tr>
                                   <td colspan="2" style="text-align:center;font-size: 14px;"><strong>Subtotal</strong></td>
                                   <td style="text-align:right;font-weight: bold;font-size: 14px;">
-                                      {{ Helper::Rupiah($subtotal) }}</td>
+                                      {{ Helper::Rupiah($manHd->jumlah) }}</td>
                                   <td></td>
 
                                 </tr>
+
                                 <tr>
                                   <td colspan="2" style="text-align:center;font-size: 14px;"><strong>VAT</strong></td>
                                   <td style="text-align:right;font-weight: bold;font-size: 14px;">
-                                      {{ Helper::Rupiah($jumppn) }}</td>
+                                      {{ Helper::Rupiah($manHd->ppn) }}</td>
                                   <td></td>
-
                                 </tr>
 
-                                <tr>
-                                  <td colspan="2" style="text-align:center;font-size: 14px;"><strong>Total</strong></td>
+
+                      @if ( ($manHd->jumlah + $manHd->ppn) >= 5000000  )
+
+                              <tr>
+                                  <td colspan="2" style="text-align:center;font-size: 14px;"><strong>Stemp Duty</strong></td>
                                   <td style="text-align:right;font-weight: bold;font-size: 14px;">
-                                      {{ Helper::Rupiah($grandtot) }}</td>
+                                      {{ Helper::Rupiah($manHd->materai) }}</td>
+                                  <td></td>
+                                </tr>
+
+
+
+                      @endif          
+
+                                
+
+
+                                <tr>
+                                  <td colspan="2" style="text-align:center;font-size: 14px;"><strong>Total </strong></td>
+                                  <td style="text-align:right;font-weight: bold;font-size: 14px;">
+                                      {{ Helper::Rupiah($manHd->grandtotal) }}</td>
                                   <td></td>
                                 </tr>
                               </tbody>

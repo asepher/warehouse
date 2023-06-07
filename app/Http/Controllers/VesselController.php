@@ -398,7 +398,7 @@ class VesselController extends Controller
             //dd('storenew');
             return redirect()->route('wh.container.createmore',[$cont,$kd_inv]);
     }
- 
+  
 
         public function CreateInvoceManualMore($cont,$inv)
           {
@@ -447,6 +447,8 @@ class VesselController extends Controller
             'tipe'      =>  'MA', 
           ];         
           InvManDetail::create($invDlt);
+
+          
 
         return redirect()->route('wh.container.createmore',[$cont,$inv]);        
       }

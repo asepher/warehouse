@@ -34,7 +34,7 @@ use PDF;
  
 class WhInvoiceController extends Controller
 {
-
+ 
    //Create CR #1 
    public function InvoiceView($inv)
     { 
